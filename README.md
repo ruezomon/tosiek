@@ -1,5 +1,6 @@
-# quaps
-My bot, yo
+# Tosiek
+This is tosiek, my personal Discord assistant. 
+I do this for myself, and myself only. 
 
 IF you want to use this Code for your own bot, you need to create a config.json like this...
 
@@ -13,10 +14,9 @@ IF you want to use this Code for your own bot, you need to create a config.json 
 
 The CMakeLists.txt file is actually given and you should be able to compile the code easily via cmake. 
 
-You might need to install some dependencies (cmake will tell you explicitly, you might want to actually READ the error messages, instead of just "whoopsy daisy"-ing and asking someone else), 
-including D++ (C++ Discord API).
+Currently compiling and launching is only possible through the Docker container. 
 
-How to download D++ (official website):
+How to download D++ yourself (official website):
 https://dpp.dev/installing.html
 
 
