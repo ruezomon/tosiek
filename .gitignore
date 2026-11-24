@@ -1,0 +1,7 @@
+# clean up
+Makefile
+bin
+build
+
+# critical
+config.json
