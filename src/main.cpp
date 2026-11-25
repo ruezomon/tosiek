@@ -6,9 +6,9 @@
 #include <map>
 #include <string>
 
-#include "../include/json.hpp"
-#include "../include/utils.hpp"
-#include "../include/tosiek.hpp"
+#include "json.hpp"
+#include "utils.hpp"
+#include "tosiek.hpp"
 
 // main
 int main(int argc, char** argv) {

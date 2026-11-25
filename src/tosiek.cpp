@@ -15,6 +15,10 @@ void tosiek::ping(const dpp::slashcommand_t& event, dpp::command_interaction cmd
     event.reply("Bot is active and running!");
 }
 
+void tosiek::ip(const dpp::slashcommand_t& event, dpp::command_interaction cmd_data) {
+    event.reply(getPublicIP());
+}
+
 std::map<std::string, Command> commands::getCommandsMap(dpp::cluster& bot) {
     std::map<std::string, Command> commands = {
         {
@@ -22,6 +26,13 @@ std::map<std::string, Command> commands::getCommandsMap(dpp::cluster& bot) {
                 .name = "ping", 
                 .command = dpp::slashcommand("ping", "Test connection", bot.me.id), 
                 .callback = tosiek::ping
+            }
+        },
+        {
+            "ip", Command{
+                .name = "ip",
+                .command = dpp::slashcommand("ip", "Get the IP of the host-server for this bot", bot.me.id),
+                .callback = tosiek::ip
             }
         },
     };

@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     libopus-dev \
     pkg-config \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 COPY dpp.deb /tmp/dpp.deb

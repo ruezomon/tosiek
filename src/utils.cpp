@@ -1,10 +1,15 @@
-#include <fstream>
+#include <cstdio>
 #include <cmath>
+
+#include <array>
 #include <vector>
 #include <map>
 #include <string>
+
+#include <fstream>
 #include <stdexcept>
 #include <functional>
+#include <memory>
 
 #include "json.hpp"
 #include "utils.hpp"
@@ -121,4 +126,19 @@ std::map<std::string, bool> getProgramParams(int argc, char** argv) {
         it->second = true;
     }
     return params;
+}
+
+std::string getPublicIP() {
+    std::array<char, 128> buffer;
+    std::string result;
+    // -s for silent mode, -m 5 for 5-second timeout
+    std::unique_ptr<FILE, decltype(&pclose)> pipe(popen("curl -s -m 5 https://ifconfig.me", "r"), pclose);
+    
+    if (!pipe) {
+        throw std::runtime_error("popen() failed!");
+    }
+    while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
+        result += buffer.data();
+    }
+    return result;
 }
